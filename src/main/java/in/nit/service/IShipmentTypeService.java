@@ -11,4 +11,6 @@ public interface IShipmentTypeService {
 	
 	ShipmentType getOneShipmentType(Integer id);
 	void updateShipmentData(ShipmentType sob);
+	
+	public List<Object[]> getShipmentModeCount();
 }

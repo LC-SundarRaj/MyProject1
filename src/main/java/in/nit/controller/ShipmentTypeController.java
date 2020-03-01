@@ -3,6 +3,8 @@ package in.nit.controller;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import in.nit.model.ShipmentType;
 import in.nit.service.IShipmentTypeService;
+import in.nit.util.ShipmentTypeUtil;
 import in.nit.view.ShipmentTypeExcelView;
 //import in.nit.view.ShipmentTypePdfView;
 import in.nit.view.ShipmentTypePdfView;
@@ -24,6 +27,10 @@ public class ShipmentTypeController {
 	
 	@Autowired
 	private IShipmentTypeService service;
+	@Autowired
+	private ServletContext context;
+	@Autowired
+	private ShipmentTypeUtil util;
 	
 	//1
 	@RequestMapping("/register")
@@ -135,7 +142,7 @@ public class ShipmentTypeController {
 	@RequestMapping("/pdf")
 	public ModelAndView showPdf(@RequestParam(value="id", required = false)Integer id) {
 		ModelAndView mv = null;
-		List<ShipmentType> list = null;
+		List<ShipmentType> list;
 		ShipmentType st;
 		
 		mv = new ModelAndView();
@@ -149,8 +156,18 @@ public class ShipmentTypeController {
 		//get one record
 		else {
 			st = service.getOneShipmentType(id);
-			mv.addObject("list", st);
+			mv.addObject("list", Arrays.asList(st));
 		}
 		return mv;
 	}	
+
+	//10. JFree Chart
+	@RequestMapping("/charts")
+	public String showCharts() {
+		List<Object[]> list = service.getShipmentModeCount();
+		String path = context.getRealPath("/");
+		util.generatePie(path, list);
+		util.generateBar(path, list);
+		return "ShipmentTypeCharts";
+	}
 }

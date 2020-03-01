@@ -7,9 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Document Upload Page</title>
-<style>
-	<%@ include file ="style.css"  %>
-</style>
+<link href="../resources/css/style.css" rel="stylesheet" media="screen" >
 </head>
 <body>
 	<h1>Welcome to Document Upload Page</h1>

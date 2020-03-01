@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>ShipmentType View Page</title>
+<title>Uom View Page</title>
+
 <link href="../resources/css/style.css" rel="stylesheet" media="screen" >
 </head>
 <style>
@@ -26,33 +27,28 @@
 </style>
 <body>
 	
-<h1>Welcome to Shipment Type View Page</h1>
+<h1>Welcome to Uom Data Page</h1>
 
 <div id="wrapper" >
-	<div id="link"><a href="pdf?id=${ob.shipId }"><img src="../resources/images/pdf.png" width="40" title="Export to PDF" /></a></div>
-	<div id="link"><a href="excel?id=${ob.shipId }"><img src="../resources/images/excel1.png" width="40" title="Export to Excel" /></a></div>
+	
+	<div id="link"><a href="excel?id=${ob.uid }"><img src="../resources/images/excel1.png" width="40" title="Export to Excel" /></a></div>
+	<div id="link"><a href="pdf?id=${ob.uid }"><img src="../resources/images/pdf.png" width="40" title="Export to PDF" /></a></div>
 	<div id="link"><a href="all"><img src="../resources/images/view_all.png" width="40" title="View All" /></a></div>
 	<div id="link"><a href="register"><img src="../resources/images/register-icon.png" width="40" title="Register" /></a></div>
-	
 		<table border="1">
 			<tr>
-				<th>ID</th><td>${ob.shipId }</td>
+				<th>ID</th><td>${ob.uid }</td>
 			</tr>
 			<tr>
-				<th>MODE</th><td>${ob.shipMode }</td>
+				<th>TYPE</th><td>${ob.uType }</td>
 			</tr>
 			<tr>
-				<th>CODE</th><td>${ob.shipCode}</td>
+				<th>MODEL</th><td>${ob.uModel}</td>
 			</tr>
 			<tr>
-				<th>ENABLE</th><td>${ob.enabShip }</td>
+				<th>DESCRIPTION</th><td>${ob.uDesc }</td>
 			</tr>
-			<tr>
-				<th>GRADE</th><td>${ob.shipGrade }</td>
-			</tr>
-			<tr>
-				<th>DESC</th><td>${ob.shipDesc }</td>
-			</tr>
+			
 		</table>
 		
 </div>

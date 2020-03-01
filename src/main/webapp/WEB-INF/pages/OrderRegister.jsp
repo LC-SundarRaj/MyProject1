@@ -11,14 +11,13 @@
 
 
 
-<style><%@include file="style.css"%></style>
-</head>
+<link href="../resources/css/style.css" rel="stylesheet" media="screen" ></head>
 <body  >
 <h1>Welcome to Order Registration Page</h1>
 
 <div id="wrapper" >
 
-<div id="link"><a href="all">View All</a></div>
+<div id="link"><a href="all"><img src="../resources/images/view_all.png" width="40" title="View All" /></a></div>
 
 <f:form action="save" method="post" modelAttribute="order">
 		<!-- <pre> -->	

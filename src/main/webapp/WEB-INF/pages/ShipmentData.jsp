@@ -10,16 +10,17 @@
 <meta charset="ISO-8859-1">
 <title>ShipmentType View Page</title>
 
-<style><%@include file="style.css"%></style>
+<link href="../resources/css/style.css" rel="stylesheet" media="screen" >
 </head>
 <body>
 	
 <h1>Welcome to Shipment Type Data Page</h1>
 
 <div id="wrapper" >
-<div id="link"><a href="excel">Export to EXCEL</a></div>
-<div id="link"><a href="pdf">Export to PDF</a></div>
-<div id="link"><a href="register">Register</a></div>
+<div id="link"><a href="excel"><img src="../resources/images/excel1.png" width="40" title="Export to Excel" /></a></div>
+<div id="link"><a href="pdf"><img src="../resources/images/pdf.png" width="40" title="Export to PDF" /></a></div>
+<div id="link"><a href="charts"><img src="../resources/images/chart.png" width="40" title="View Charts" /></a></div>
+<div id="link"><a href="register" ><img src="../resources/images/register-icon.png" width="40" title="Register" /></a></div>
 	
 	<c:choose>
 		<c:when test="${!empty list }">
@@ -43,9 +44,15 @@
 						<td>${ob.enabShip }</td>
 						<td>${ob.shipGrade }</td>
 						<td>${ob.shipDesc }</td>
-						<td><a href="delete?sid=${ob.shipId }">DELETE</a></td>
-						<td><a href="edit?sid=${ob.shipId }">EDIT</a></td>
-						<td><a href="view?sid=${ob.shipId }">VIEW</a></td>
+						<td>
+							<a href="delete?sid=${ob.shipId }">
+							<img src="../resources/images/bin.png" width="20" title="Delete">
+							</a>
+						</td>
+						<td><a href="edit?sid=${ob.shipId }">
+							<img src="../resources/images/edit1.png" width="20"  title="Edit this Record">
+						</a></td>
+						<td><a href="view?sid=${ob.shipId }"><img src="../resources/images/view1.png" width="20"  title="View This Record"/></a></td>
 					</tr>
 				</c:forEach>
 			</table>

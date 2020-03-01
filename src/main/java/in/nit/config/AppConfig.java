@@ -16,6 +16,8 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
@@ -27,7 +29,7 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 @EnableWebMvc
 @Configuration
 @ComponentScan("in.nit")
-public class AppConfig {
+public class AppConfig implements WebMvcConfigurer{
 
 	@Autowired
 	private Environment env;
@@ -103,6 +105,11 @@ public class AppConfig {
 	@Bean
 	public CommonsMultipartResolver multipartResolver() {
 		return new CommonsMultipartResolver();
+	}
+	
+	//7. Enable resources
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 
 

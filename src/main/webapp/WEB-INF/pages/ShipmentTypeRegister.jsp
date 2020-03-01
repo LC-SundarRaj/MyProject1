@@ -7,13 +7,13 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Shipment Registration Page</title>
-	<style><%@include file="style.css"%></style>
+	<link href="../resources/css/style.css" rel="stylesheet" media="screen" >
 </head>
 <body  >
 	<h1>Welcome to Shipment Type Registration Page</h1>
 	
 	<div id="wrapper" >
-		<div id="link"><a href="all">View All</a></div>
+		<div id="link"><a href="all"><img src="../resources/images/view_all.png" width="40" title="View All" /></a></div>
 		 
 			<form:form action="save" method="post" modelAttribute="shipmentType">
 					

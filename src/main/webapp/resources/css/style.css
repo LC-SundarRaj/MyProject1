@@ -1,11 +1,11 @@
 @charset "ISO-8859-1";
 
 body {
-	background:url("https://images8.alphacoders.com/987/987888.jpg")no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+	background:url("../images/bg.jpg")no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 	margin: auto;
 	text-align: center;
 	font-size: 15px;
@@ -176,10 +176,13 @@ h5{
     float:right;
     border-radius: 0 0 10px 10px;
 }
+
 #link a{
 	text-decoration: none;
     color: white;
 }
+
+
 #link:hover{
 	background:#0000ff70;
 	color:white;

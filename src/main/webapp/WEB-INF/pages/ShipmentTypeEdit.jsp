@@ -9,15 +9,14 @@
 <meta charset="ISO-8859-1">
 <title>ShipmentType Edit Page</title>
 
+<link href="../resources/css/style.css" rel="stylesheet" media="screen" >
 
-
-<style><%@include file="style.css"%></style>
 </head>
 <body  >
 <h1>Welcome to Shipment Type Edit Page</h1>
 
 <div id="wrapper" >
-<div id="link"><a href="all">View All</a></div>
+<div id="link"><a href="all"><img src="../resources/images/view_all.png" width="40" title="View All" /></a></div>
 	<form:form action="update" method="post" modelAttribute="shipmentType">
 		<!-- <pre> -->	
 		

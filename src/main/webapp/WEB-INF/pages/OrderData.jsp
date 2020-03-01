@@ -7,15 +7,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Order Data Page</title>
-
-<style><%@include file="style.css"%></style>
+<link href="../resources/css/style.css" rel="stylesheet" media="screen" >
 </head>
 <body>
 	
 <h1>Welcome to Order Data Page</h1>
 
 <div id="wrapper" >
-<div id="link"><a href="register">Register</a></div>
+<div id="link"><a href="register"><img src="../resources/images/register-icon.png" width="40" title="Register" /></a></div>
 	<c:choose>
 		<c:when test="${!empty list }">
 			<table border="1">
@@ -36,8 +35,8 @@
 						<td>${ob.orderMethod }</td>
 						<td>${ob.orderAccept }</td>
 						<td>${ob.orderDesc }</td>
-						<td><a href="delete?oid=${ob.orderId }">DELETE</a></td>
-						<td><a href="edit?oid=${ob.orderId }">EDIT</a></td>
+						<td><a href="delete?oid=${ob.orderId }"><img src="../resources/images/bin.png" width="20" title="Delete this row" /></a></td>
+						<td><a href="edit?oid=${ob.orderId }"><img src="../resources/images/edit1.png" width="20" title="Edit the Row" /></a></td>
 					</tr>
 				</c:forEach>
 			</table>

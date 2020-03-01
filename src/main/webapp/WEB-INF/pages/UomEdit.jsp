@@ -1,24 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>    
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Uom Registration Page</title>
+<title>Uom Edit Page</title>
 
 <link href="../resources/css/style.css" rel="stylesheet" media="screen" >
 
 </head>
 <body  >
-<h1>Welcome to Uom Registration Page</h1>
+<h1>Welcome to Uom Edit Page</h1>
 
 <div id="wrapper" >
 <div id="link"><a href="all"><img src="../resources/images/view_all.png" width="40" title="View All" /></a></div>
-	<form:form action="save" method="post" modelAttribute="uom">
+	<form:form action="update" method="post" modelAttribute="uom">
 		<!-- <pre> -->	
+		
+			<div id="fblock">
+				<div id="lft">
+					<h4>UOM ID :</h4>		
+				</div>
+				<div id="rht">
+					<form:input path="uid" readonly="true" />
+				</div>
+			</div>
 			<div id="fblock" >
 				<div id="lft">
 					<h4>UOM TYPE :</h4>

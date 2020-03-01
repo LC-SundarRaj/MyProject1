@@ -31,6 +31,14 @@ public class UomDaoImpl implements IUomDao{
 		
 		ht.delete(new Uom(uid));
 	}
-
+	@Override
+	public Uom getOneUom(Integer id) {
+		return ht.get(Uom.class, id);
+	}
+	
+	@Override
+	public void updateUom(Uom uob) {
+		ht.update(uob);
+	}
 }
 	

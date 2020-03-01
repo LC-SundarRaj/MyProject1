@@ -14,9 +14,9 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 
-import in.nit.model.ShipmentType;
+import in.nit.model.Uom;
 
-public class ShipmentTypePdfView extends AbstractPdfView {
+public class UomPdfView extends AbstractPdfView {
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -24,33 +24,29 @@ public class ShipmentTypePdfView extends AbstractPdfView {
 			HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		
 		//set Download option
-		resp.addHeader("Content-Disposition", "attachment;filename=shipment.pdf");
+		resp.addHeader("Content-Disposition", "attachment;filename=Uom.pdf");
 		
-		Paragraph p = new Paragraph("Welcome to Shipment Type");
+		Paragraph p = new Paragraph("Welcome to Uom");
 		
 		//document.addTitle("ShipmentType");
 		document.add(p);
 		
 		//read from Model
-		List<ShipmentType> list =  (List<ShipmentType>) model.get("list");
+		List<Uom> list =  (List<Uom>) model.get("list");
 		
 		//creating table with no.of columns
-		PdfPTable t = new PdfPTable(6);
+		PdfPTable t = new PdfPTable(4);
 		t.addCell("ID");
-		t.addCell("MODE");
-		t.addCell("CODE");
-		t.addCell("ENABLE");
-		t.addCell("GRADE");
+		t.addCell("TYPE");
+		t.addCell("MODEL");
 		t.addCell("NOTE");
 		
 		//adding data to table
-		for (ShipmentType st:list) {
-			t.addCell(st.getShipId().toString());
-			t.addCell(st.getShipMode());
-			t.addCell(st.getShipCode());
-			t.addCell(st.getEnabShip());
-			t.addCell(st.getShipGrade());
-			t.addCell(st.getShipDesc());
+		for (Uom u:list) {
+			t.addCell(u.getUid().toString());
+			t.addCell(u.getuType());
+			t.addCell(u.getuModel());
+			t.addCell(u.getuDesc());
 		}
 		
 		document.add(t);

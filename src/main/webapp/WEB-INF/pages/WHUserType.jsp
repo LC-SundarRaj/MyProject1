@@ -10,14 +10,13 @@
 <title>WH User Type Registration Page</title>
 
 
-
-<style><%@include file="style.css"%></style>
+<link href="../resources/css/style.css" rel="stylesheet" media="screen" >
 </head>
 <body  >
 <h1>Welcome to WH User Type Registration Page</h1>
 
 <div id="wrapper" style="height:600px" >
-<div id="link"><a href="all">View All</a></div>
+<div id="link"><a href="all"><img src="../resources/images/view_all.png" width="40" title="View All" /></a></div>
 <form action="save" method="post">
 		<!-- <pre> -->	
 			<div id="fblock" >
