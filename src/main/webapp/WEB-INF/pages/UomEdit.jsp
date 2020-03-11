@@ -9,63 +9,58 @@
 <meta charset="ISO-8859-1">
 <title>Uom Edit Page</title>
 
-<link href="../resources/css/style.css" rel="stylesheet" media="screen" >
-
+<%@include file="userMenu.jsp" %>
 </head>
 <body  >
-<h1>Welcome to Uom Edit Page</h1>
-
-<div id="wrapper" >
-<div id="link"><a href="all"><img src="../resources/images/view_all.png" width="40" title="View All" /></a></div>
-	<form:form action="update" method="post" modelAttribute="uom">
-		<!-- <pre> -->	
+<div class="container">
+		<div class="card mt-3 border-0 bg-transparent">
 		
-			<div id="fblock">
-				<div id="lft">
-					<h4>UOM ID :</h4>		
-				</div>
-				<div id="rht">
-					<form:input path="uid" readonly="true" />
-				</div>
-			</div>
-			<div id="fblock" >
-				<div id="lft">
-					<h4>UOM TYPE :</h4>
-				</div>
-				<div id="rht">
-					<form:select path="uType">
-						<form:option id="opt" value="">--SELECT--</form:option>
-						<form:option id="opt" value="PACKING">PACKING</form:option>
-						<form:option id="opt" value="No PACKING">NO PACKING</form:option>
-						<form:option id="opt" value="-NA-">-NA-</form:option>
-					</form:select>
-				</div>
-			</div>
+			<div class="card-header bg-dark2 text-light text-center"><h1>Welcome to Uom Edit Page</h1></div>
+			<div class="card-body bg-light">
 			
-			<div id="fblock">
-				<div id="lft">
-					<h4>UOM MODEL :</h4>		
+			<form:form action="update" method="post" modelAttribute="uom">
+				<div class="row pt-1 pb-1">
+					<div class="col-4"><label for="uid">Uom ID :</label></div>		
+					<div class="col-4"><form:input path="uid" readonly="true" class="form-control"/></div>
+					<div class="col-4"></div>
 				</div>
-				<div id="rht">
-					<form:input path="uModel" placeholder="Enter UOM Model" />
+					
+				<div class="row pt-1 pb-1">
+					<div class="col-4"><label for="shipId">Uom Type :</label></div>		
+					<div class="col-4">
+						<form:select path="uType" class="form-control">
+							<form:option id="opt" value="">--SELECT--</form:option>
+							<form:option id="opt" value="PACKING">PACKING</form:option>
+							<form:option id="opt" value="No PACKING">NO PACKING</form:option>
+							<form:option id="opt" value="-NA-">-NA-</form:option>
+						</form:select>
+					</div>
+					<div class="col-4"></div>
 				</div>
-			</div>
-			<div id="fblock">
-				<div id="lft">
-					<h4>UOM DESCRIPTION:</h4> 	
-		
-				</div>		
-				<div id="rht">
-					<form:textarea path="uDesc" rows="5" placeholder="UOM Description " />
+				<div class="row pt-1 pb-1">
+					<div class="col-4"><label for="uid">UOM MODEL :</label></div>		
+					<div class="col-4"><form:input path="uModel"  placeholder="Enter UOM Model" class="form-control"/></div>
+					<div class="col-4"></div>
 				</div>
-			</div>
 				
-			<div id="fblock">
-			<input type="submit" value="CREATE UOM" class="button">
-			
-			</div>
-		<!-- </pre> -->
-	</form:form> 
+				<div class="row pt-1 pb-1">
+					<div class="col-4"><label for="uDesc">UOM DESCRIPTION:</label></div>		
+					<div class="col-4"><form:textarea path="uDesc"  placeholder="Uom Description" class="form-control"/></div>
+					<div class="col-4"></div>
+				</div>
+								
+					
+				<div class="row pt-1 pb-1">
+					<div class="col-4"></div>
+					<div class="col-4">
+							<input type="submit" value="UPDATE UOM" class="btn btn-dark">
+							<input type="reset" value="CLEAR" class="btn btn-info">
+					</div>
+					<div class="col-4"></div>
+					
+				</div>
+			</form:form> 
+		</div>
 	<h5>${message }</h5>
 </div>
 

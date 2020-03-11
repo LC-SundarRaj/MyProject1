@@ -43,4 +43,9 @@ public class UomServiceImpl implements IUomService {
 	public void updateUom(Uom uob) {
 		dao.updateUom(uob);
 	}
+	
+	@Transactional(readOnly = true)
+	public List<Object[]> getUomModeCount() {
+		return dao.getUomModeCount();
+	}
 }

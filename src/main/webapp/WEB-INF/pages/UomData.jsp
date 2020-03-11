@@ -7,21 +7,22 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Uom Data Page</title>
-<link href="../resources/css/style.css" rel="stylesheet" media="screen" >
+<%@include file="userMenu.jsp" %>
 </head>
 <body>
-	
-<h1>Welcome to Uom Data Page</h1>
-
-<div id="wrapper" >
-<div id="link"><a href="excel"><img src="../resources/images/excel1.png" width="40" title="Export to Excel" /></a></div>
-<div id="link"><a href="pdf"><img src="../resources/images/pdf.png" width="40" title="Export to PDF" /></a></div>
-<div id="link"><a href="register" ><img src="../resources/images/register-icon.png" width="40" title="Register" /></a></div>
-
-	<c:choose>
+	<div class="container">
+		<div class="card mt-3 border-0 bg-transparent">
+		
+			<div class="card-header bg-dark2 text-light text-center"><h1>Welcome to Uom Data Page</h1></div>
+			<div class="card-body bg-light">
+			<a href="excel" class="btn btn-info">Export to Excel <i style="font-size:24px; text-shadow:3px 3px 3px #33333375" class="fa">&#xf1c3;</i></a>
+			<a href="pdf" class="btn btn-info">Export to PDF <i style="font-size:24px; text-shadow:3px 3px 3px #33333375" class="fa">&#xf1c1;</i></a>
+			
+			
+				<c:choose>
 		<c:when test="${!empty list }">
-			<table border="1">
-				<tr>
+			<table  class="table table-bordered table-hover mt-2">
+				<tr class="bg-primary text-white">
 					<th>ID</th>
 					<th>TYPE</th>
 					<th>MODEL</th>
@@ -35,9 +36,15 @@
 						<td>${ob.uType }</td>
 						<td>${ob.uModel }</td>
 						<td>${ob.uDesc }</td>
-						<td><a href="delete?uomId=${ob.uid }"><img src="../resources/images/bin.png" width="20" title="Delete"></a></td>
-						<td><a href="edit?uomId=${ob.uid }"><img src="../resources/images/edit1.png" width="20"  title="Edit this Record"></a></td>
-						<td><a href="view?uomId=${ob.uid }"><img src="../resources/images/view1.png" width="20"  title="View This Record"/></a></td>
+						<td class="text-center"><a href="delete?uomId=${ob.uid }" data-toggle="tooltip" data-placement="top" title="Delete this Record">
+									<i class='far fa-trash-alt text-danger text-center' ></i>
+									</a>
+						</td>
+						<td class="text-center"><a href="edit?uomId=${ob.uid }" data-toggle="tooltip" data-placement="top" title="Edit this Record">
+									<i class="fa fa-edit text-info text-center"></i>
+								</a>
+						</td>
+						<td class="text-center"><a href="view?uomId=${ob.uid }"><i class="fa fa-eye text-center text-success"></i></a></td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -46,8 +53,22 @@
 			No Data Found!!!
 		</c:otherwise>
 	</c:choose>
-	<h5>${message }</h5>
+			
+			</div>
+			
+			
+			<c:if test="${!empty message }">
+				<c:choose>
+					<c:when test="${opr eq 'DEL'}">
+					<div class="card-footer bg-danger text-white text-center"><b>${message }</b></div>
+					</c:when>
+					<c:otherwise>
+					<div class="card-footer bg-info text-white text-center"><b>${message }</b></div>
+					</c:otherwise>
+				</c:choose>
+			</c:if>
+			
 </div>
-
+</div>
 </body>
 </html>

@@ -37,5 +37,13 @@ public class OrderServiceImpl implements IOrderService{
 		dao.deleteOrder(id);		
 	}
 
-	
+	@Override
+	public Order getOneOrder(Integer id) {
+		return null;
+	}
+
+	@Override
+	public void updateOrder(Order omOb) {
+		
+	}
 }

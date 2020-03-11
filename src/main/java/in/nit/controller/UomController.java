@@ -3,6 +3,8 @@ package in.nit.controller;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import in.nit.model.ShipmentType;
 import in.nit.model.Uom;
 import in.nit.service.IUomService;
+import in.nit.util.UomUtil;
 import in.nit.view.UomExcelView;
 import in.nit.view.UomPdfView;
 
@@ -23,6 +27,10 @@ public class UomController {
 	
 	@Autowired
 	private IUomService service;
+	@Autowired
+	private ServletContext context;
+	@Autowired
+	private UomUtil util;
 
 	//1
 	@RequestMapping("/register")
@@ -83,8 +91,13 @@ public class UomController {
 		public String updateUom(@ModelAttribute Uom uom,  Model model) {
 			service.updateUom(uom);
 			
+			String message="Shipment - #"+ uom.getUid()+ " updated";
+			model.addAttribute("message", message);
 			
-			return "redirect:all";
+			List<Uom> list = service.getAllUom(); 
+			model.addAttribute("list", list); 
+			
+			return "UomData";
 		}
 		
 		//7
@@ -143,6 +156,16 @@ public class UomController {
 			}
 			return mv;
 		}	
-	
+
+		//10. JFree Chart
+		@RequestMapping("/charts")
+		public String showCharts() {
+			List<Object[]> list = service.getUomModeCount();
+			String path = context.getRealPath("/");
+			util.generatePie(path, list);
+			util.generateBar(path, list);
+			return "UomCharts";
+		}
+
 	
 }

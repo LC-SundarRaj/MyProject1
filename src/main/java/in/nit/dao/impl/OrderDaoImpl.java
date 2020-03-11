@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import in.nit.dao.IOrderDao;
 import in.nit.model.Order;
+import in.nit.model.ShipmentType;
 
 @Repository
 public class OrderDaoImpl implements IOrderDao{
@@ -29,7 +30,16 @@ public class OrderDaoImpl implements IOrderDao{
 		ht.delete(new Order(id));
 	}
 	
+	@Override
+	public Order getOneOrder(Integer id) {
+		Order omOb = ht.get(Order.class,id);
+		return null;
+	}
 	
+	@Override
+	public void updateOrder(Order omOb) {
+		ht.update(omOb);
+	}
 
 
 }

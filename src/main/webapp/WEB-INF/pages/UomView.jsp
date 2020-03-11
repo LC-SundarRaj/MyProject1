@@ -8,45 +8,29 @@
 <meta charset="ISO-8859-1">
 <title>Uom View Page</title>
 
-<link href="../resources/css/style.css" rel="stylesheet" media="screen" >
+<%@include file="userMenu.jsp" %>
 </head>
-<style>
-	#wrapper{
-		width: 50%;
-	}
-	table th{
-		background: none;
-		width: 20%;
-		text-align: left;
-		color:green;
-		border-color:green;
-	}
-	table td{
-		text-align: left;
-	}
-</style>
 <body>
+	<div class="container">
+		<div class="card mt-3 border-0 bg-transparent">
+			<div class="card-header bg-dark2 text-light text-center"><h1>Welcome to Uom VIEW Page</h1></div>
+			<div class="card-body bg-light">
 	
-<h1>Welcome to Uom Data Page</h1>
-
-<div id="wrapper" >
+			<a href="excel?id=${ob.uid }" class="btn btn-info">Export to Excel <i style="font-size:24px; text-shadow:3px 3px 3px #33333375" class="fa">&#xf1c3;</i></a>
+			<a href="pdf?id=${ob.uid }" class="btn btn-info">Export to PDF <i style="font-size:24px; text-shadow:3px 3px 3px #33333375" class="fa">&#xf1c3;</i></a>
 	
-	<div id="link"><a href="excel?id=${ob.uid }"><img src="../resources/images/excel1.png" width="40" title="Export to Excel" /></a></div>
-	<div id="link"><a href="pdf?id=${ob.uid }"><img src="../resources/images/pdf.png" width="40" title="Export to PDF" /></a></div>
-	<div id="link"><a href="all"><img src="../resources/images/view_all.png" width="40" title="View All" /></a></div>
-	<div id="link"><a href="register"><img src="../resources/images/register-icon.png" width="40" title="Register" /></a></div>
-		<table border="1">
+			<table  class="table table-bordered table-hovered mt-2">
 			<tr>
-				<th>ID</th><td>${ob.uid }</td>
+				<th class="bg-dark text-white w-50">ID</th><td>${ob.uid }</td>
 			</tr>
 			<tr>
-				<th>TYPE</th><td>${ob.uType }</td>
+				<th class="bg-dark text-white">TYPE</th><td>${ob.uType }</td>
 			</tr>
 			<tr>
-				<th>MODEL</th><td>${ob.uModel}</td>
+				<th class="bg-dark text-white">MODEL</th><td>${ob.uModel}</td>
 			</tr>
 			<tr>
-				<th>DESCRIPTION</th><td>${ob.uDesc }</td>
+				<th class="bg-dark text-white">DESCRIPTION</th><td>${ob.uDesc }</td>
 			</tr>
 			
 		</table>

@@ -11,4 +11,6 @@ public interface IUomDao {
 	
 	public Uom getOneUom(Integer id);
 	public void updateUom(Uom uob);
+	
+	public List<Object[]> getUomModeCount();
 }

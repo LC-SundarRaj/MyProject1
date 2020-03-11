@@ -82,7 +82,7 @@ public class ShipmentTypeController {
 	{
 		ShipmentType st = service.getOneShipmentType(id);
 		model.addAttribute("shipmentType", st);
-		
+			
 		return "ShipmentTypeEdit";
 	}
 	
@@ -91,16 +91,19 @@ public class ShipmentTypeController {
 	public String updateShipmentType(@ModelAttribute ShipmentType shipmentType,  Model model) {
 		service.updateShipmentData(shipmentType);
 		
-		/*String message="Shipment - #"+ shipmentType.getShipId()+ " updated";
-		model.addAttribute("message", message);*/
+		String message="Shipment - #"+ shipmentType.getShipId()+ " updated";
+		model.addAttribute("message", message);
 		
-		/** 1st way to go to data page after updating
-		 * List<ShipmentType> list = service.getAllShipmentData();
-		model.addAttribute("list", list);
-		return "ShipmentData";*/
+		/**
+		 * 1st way to go to data page after updating */
+		List<ShipmentType> list = service.getAllShipmentData(); 
+		model.addAttribute("list", list); 
+		
+		return "ShipmentData";
+		 
 		
 		/** 2nd way to go to data page after updating */
-		return "redirect:all";
+		/*return "redirect:all";*/
 	}
 	
 	

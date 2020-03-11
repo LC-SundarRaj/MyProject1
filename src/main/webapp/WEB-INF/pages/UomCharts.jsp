@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>ShipmentType Chart Page</title>
+<title>Uom Chart Page</title>
 
 <%@include file="userMenu.jsp" %>
 </head>
@@ -13,15 +13,14 @@
 <div class="container">
 		<div class="card mt-3 border-0 bg-transparent">
 		
-			<div class="card-header bg-dark2 text-light text-center"><h1>Welcome to Shipment Type Charts Page</h1></div>
+			<div class="card-header bg-dark2 text-light text-center"><h1>Welcome to Uom Charts Page</h1></div>
 			<div class="card-body bg-light">
-
 		
 		
-				<img src="../resources/charts/ShipmentModesPie.jpg" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<img src="../resources/charts/ShipmentModesBar.jpg" />
-			</div>
+		<img src="../resources/charts/UomTypesPie.jpg" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="../resources/charts/UomTypesBar.jpg" />
 		</div>
+	</div>
 </div>
 </body>
 </html>

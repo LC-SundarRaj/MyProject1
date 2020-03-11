@@ -25,7 +25,7 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 
 
 @EnableTransactionManagement
-@PropertySource("classpath:app.properties")
+@PropertySource("classpath:application.properties")
 @EnableWebMvc
 @Configuration
 @ComponentScan("in.nit")
